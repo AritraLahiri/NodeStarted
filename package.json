@@ -1,5 +1,23 @@
 {
-  "dependencies": {
+  "name": "nodejsstarter",
+  "version": "1.0.0",
+  "description": "FirstNodeApp",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AritraLahiri/NodeStarted.git"
+  },
+  "author": "Lahiri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AritraLahiri/NodeStarted/issues"
+  },
+  "homepage": "https://github.com/AritraLahiri/NodeStarted#readme",
+  "devDependencies": {
     "nodemon": "^3.0.1"
   }
 }
