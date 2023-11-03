@@ -1,19 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const adminRoutes = require("./Routes/Admin");
+const homeRoutes = require("./Routes/Home");
+const shopRoutes = require("./Routes/Shop");
+const errorRoutes = require("./Routes/Error");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/add", (req, res, next) => {
-  res.send(
-    "<form action='/add' method='POST'><input type='text' placeholder='Product' name='product'> <button type='submit'>Add</button></form>"
-  );
-});
-app.post("/add", (req, res, next) => {
-  console.log(req.body);
-  res.redirect("/");
-});
-app.get("/", (req, res, next) => {
-  res.send("<h1>Welcome Home</h1>");
-});
+app.use(adminRoutes);
+app.use(homeRoutes);
+app.use("/shop", shopRoutes);
+app.use(errorRoutes);
 
 app.listen(4000);
