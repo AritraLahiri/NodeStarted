@@ -10,3 +10,8 @@ exports.addProductPost = (req, res, next) => {
 exports.getAllProducts = (req, res, next) => {
   res.sendFile(path.join(__dirname, "../", "Views", "Shop.html"));
 };
+exports.getProduct = (req, res, next) => {
+  const prodId = req.params.prodId;
+  res.redirect("/");
+  // res.sendFile(path.join(__dirname, "../", "Views", "Shop.html"));
+};
