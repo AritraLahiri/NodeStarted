@@ -14,18 +14,22 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
   const description = req.body.description;
   const product = new Product(null, title, imageUrl, description, price);
-  product.save();
-  res.redirect("/");
+  product
+    .save()
+    .then(() => res.redirect("/"))
+    .catch((err) => console.log(err));
 };
 
 exports.deleteProduct = (req, res, next) => {
   const prodId = req.params.prodId;
-  Product.deleteById(prodId, (products) => {
-    if (!products) {
-      res.redirect("/");
-    }
-    console.log(products);
-  });
+  Product.deleteById(prodId)
+    .then(([product]) => {
+      if (!product) {
+        res.redirect("/");
+      }
+      console.log(product);
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.getEditProduct = (req, res, next) => {
